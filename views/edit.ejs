@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+  </head>
+  <body>
+
+
+      <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form style="border: teal 1px solid;" action="/update/" role="form" method="POST">
+            <input type="hidden" name="id" value="<%= records._id %>">
+          <h2 style="background-color: teal; padding: 5px; text-align: center;"><%= title %></h2>
+            <div class="form-group row" style="padding: 5px;">
+              <label style="padding-top: 5px; text-align: right;" class="col-md-3 control-label">Name:</label>
+              <input type="text" class="col-md-8 form-control" name="uname" value="<%= records.name %>" placeholder="Enter Username">
+            </div>
+            <div class="form-group row" style="padding: 5px;">
+              <label style="padding-top: 5px; text-align: right;" class="col-md-3 control-label">Email:</label>
+              <input type="text" class="col-md-8 form-control" name="email" value="<%= records.email %>" placeholder="Enter Email">
+            </div>
+            <div class="form-group row" style="padding: 5px;">
+              <label style="padding-top: 5px; text-align: right;" class="col-md-3 control-label">Employee Type:</label>
+             <select class="form-control col-md-8" name="emptype">
+                <option value="Hourly" <% if(records.etype == "Hourly"){ %> selected <% } %> >Hourly</option>
+                <option value="Fixed" <% if(records.etype == "Fixed"){ %> selected <% } %>>Fixed</option>
+             </select>
+            </div>
+            <div class="form-group row" style="padding: 5px;">
+              <label style="padding-top: 5px; text-align: right;" class="col-md-3 control-label">Hourly Rate:</label>
+              <input type="text" class="col-md-8 form-control" name="hourlyrate" value="<%= records.hourlyrate %>" placeholder="Enter hourlyrate">
+            </div>
+            <div class="form-group row" style="padding: 5px;">
+              <label style="padding-top: 5px; text-align: right;" class="col-md-3 control-label">Total Hours:</label>
+              <input type="text" class="col-md-8 form-control" name="totalhours" value="<%= records.totalHour %>" placeholder="Enter total hours">
+            </div>
+            <div class="form-group row" style="padding: 5px;">
+              <div class="col-md-3"></div>
+              <button type="submit" class="col-md-2 form-control" value="Submit" style="background-color: teal; color: white;">Submit</button>
+              <div class="col-md-7"></div>
+            </div>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    </div>
+
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>
